@@ -267,7 +267,7 @@ class GPAApp(QWidget):
 
             influence_item = self.table.item(row, 4)
             if influence_item:
-                influence_item.setText(f"{influence:.2f}")
+                influence_item.setText(f"{influence:.5f}")
 
     def toggle_point_method(self, state):
         global USE_DIRECT_POINT
@@ -281,7 +281,7 @@ class GPAApp(QWidget):
         self.table.setItem(row_position, 1, QTableWidgetItem("0"))
         self.table.setItem(row_position, 2, QTableWidgetItem("0.0"))
         self.table.setItem(row_position, 3, QTableWidgetItem("0.0"))
-        self.table.setItem(row_position, 4, QTableWidgetItem("0.00"))
+        self.table.setItem(row_position, 4, QTableWidgetItem("0.00000"))
         self.refresh_gpa()
 
     def remove_course(self):
@@ -330,13 +330,13 @@ class GPAApp(QWidget):
                         password = lines[1].strip()
                         return username, password
                     else:
-                        print("账号或密码格式不正确")
+                        QMessageBox.warning(self, "警告", "账号或密码格式不正确")
                         return None, None
             except Exception as e:
-                print(f"读取账号密码文件时出错: {e}")
+                QMessageBox.warning(self, "警告", f"读取账号密码文件时出错: {e}")
                 return None, None
         else:
-            print(f"找不到账号密码文件 {CREDENTIALS_FILE}")
+            QMessageBox.warning(self, "警告", "找不到账号密码文件")
             return None, None
 
     def total(self, username, password):
@@ -345,12 +345,11 @@ class GPAApp(QWidget):
                 service = Service(executable_path=DRIVER_PATH)
                 self.driver = webdriver.Edge(service=service)
             except Exception as e:
-                print(e)
-                QMessageBox.warning(self, "警告", "无法启动程序自带驱动浏览器，正在尝试启动本地Edge WebDriver:")
+                QMessageBox.warning(self, "警告", f"无法启动程序自带驱动浏览器, 可能是版本不匹配,正在尝试启动本地Edge WebDriver:\n {e}，:")
                 try:
                     self.driver = webdriver.Edge()
                 except Exception as e:
-                    print(f"无法启动Edge WebDriver: {e}, 请安装最新版Edge WebDriver")
+                    QMessageBox.warning(self, "警告", f"无法启动Edge WebDriver，请安装最新版Edge WebDriver:\n {e}, ")
                     return
                
         self.input_username_password(username, password)
@@ -444,7 +443,8 @@ class GPAApp(QWidget):
                                 file.write(line)
 
         except Exception as e:
-            print(f"获取成绩出现错误，错误码: {e}")
+            QMessageBox.warning(self, "错误", f"获取成绩出现错误，错误码: {e}")
+            #print(f"获取成绩出现错误，错误码: {e}")
         
         finally:
             self.driver.quit()
