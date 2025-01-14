@@ -77,40 +77,40 @@
 
 #### Q1: 报错或弹窗"无法启动程序自带驱动浏览器"或者"无法启动Edge WebDriver"
 
-**问题原因：**
-
-1. 您的本地 Microsoft Edge 浏览器版本和程序自带的 `msedgedriver.exe` 驱动版本不匹配。
-2. `msedgedriver.exe` 文件缺失或未正确放置。
-
-**解决方法：**
-
-1. **确保Edge和EdgeDriver版本一致：**
-   - 请参考 [EdgeDriver下载页面](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) 更新您的 `msedgedriver.exe`，确保它与本地的 Microsoft Edge 浏览器版本一致。
-   - 将更新后的 `msedgedriver.exe` 文件替换项目文件夹中的旧版本。
-
-2. **检查文件路径：**
-   - 确保 `msedgedriver.exe` 文件位于程序的根目录中。如果文件不在正确位置，程序可能无法找到它。
-
-3. **更新浏览器：**
-    - 若你安装的是最新版本的EdgeDriver，请更新你的Edge。通过“设置”中的“帮助和反馈” -> “关于Microsoft Edge”来检查更新。
-   - 如果您已经安装了最新版本的 Microsoft Edge，但问题依然存在，尝试重新安装浏览器，或者通过“设置”中的“帮助和反馈” -> “关于Microsoft Edge”来检查更新。
-
-5. **重新启动计算机：**
-   - 有时，浏览器或驱动程序更新后需要重新启动计算机才能生效。请尝试重新启动计算机，并重新运行程序。
-
-如果以上方法都无法解决问题，请尝试运行原python脚本，即 `GPACalc4.4.py`。或访问项目的 GitHub 页面提问获取更多支持。
+    **问题原因：**
+    
+    1. 您的本地 Microsoft Edge 浏览器版本和程序自带的 `msedgedriver.exe` 驱动版本不匹配。
+    2. `msedgedriver.exe` 文件缺失或未正确放置。
+    
+    **解决方法：**
+    
+    1. **确保Edge和EdgeDriver版本一致：**
+       - 请参考 [EdgeDriver下载页面](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) 更新您的 `msedgedriver.exe`，确保它与本地的 Microsoft Edge 浏览器版本一致。
+       - 将更新后的 `msedgedriver.exe` 文件替换项目文件夹中的旧版本。
+    
+    2. **检查文件路径：**
+       - 确保 `msedgedriver.exe` 文件位于程序的根目录中。如果文件不在正确位置，程序可能无法找到它。
+    
+    3. **更新浏览器：**
+        - 若你安装的是最新版本的EdgeDriver，请更新你的Edge。通过“设置”中的“帮助和反馈” -> “关于Microsoft Edge”来检查更新。
+       - 如果您已经安装了最新版本的 Microsoft Edge，但问题依然存在，尝试重新安装浏览器，或者通过“设置”中的“帮助和反馈” -> “关于Microsoft Edge”来检查更新。
+    
+    5. **重新启动计算机：**
+       - 有时，浏览器或驱动程序更新后需要重新启动计算机才能生效。请尝试重新启动计算机，并重新运行程序。
+    
+    如果以上方法都无法解决问题，请尝试运行原python脚本，即 `GPACalc4.4.py`。或访问项目的 GitHub 页面提问获取更多支持。
 
 #### Q2: 如何修改课程成绩和学分？
 
-您可以在表格中手动修改课程的成绩和学分。修改后，程序会自动计算对应的绩点，并更新GPA。
+    您可以在表格中手动修改课程的成绩和学分。修改后，程序会自动计算对应的绩点，并更新GPA。
 
 #### Q3: 如何爬取成绩？
 
-点击**爬取到本地**按钮，根据配置文件中您的教务系统用户名和密码，程序将自动爬取您的成绩信息并保存到`courses.txt`。
+    点击**爬取到本地**按钮，根据配置文件中您的教务系统用户名和密码，程序将自动爬取您的成绩信息并保存到`courses.txt`。
 
 #### Q4: 如何导出计算结果？
 
-点击**导出到日志**按钮，程序会将当前GPA、总学分以及所有课程的详细信息导出到一个日志文件中。
+    点击**导出到日志**按钮，程序会将当前GPA、总学分以及所有课程的详细信息导出到一个日志文件中。
 
 ## 许可协议
 
